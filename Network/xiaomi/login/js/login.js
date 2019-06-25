@@ -27,7 +27,7 @@ btnLogin.onclick = function (e) {
     var userStr = usernameLogin.value;
     var pwdStr = pwdLogin.value;
     var str = 'name=' + userStr + '&password=' + pwdStr;
-    ajax('POST', 'http://vip.chanke.xyz/mi/login', cbs, str, true);
+    ajax('POST', 'https://vip.chanke.xyz/mi/login', cbs, str, true);
 }
 
 
@@ -39,7 +39,7 @@ btnRegister.onclick = function (e) {
     if (pwdStr == pwd2Str) {
         // name=xxx&password=xxx;
         var str = 'name=' + userStr + '&password=' + pwdStr;
-        ajax('POST', 'http://vip.chanke.xyz/mi/register', cbs, str, true);
+        ajax('POST', 'https://vip.chanke.xyz/mi/register', cbs, str, true);
     }
 }
 function cbs(data) {
