@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>打地鼠</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="scene">
+        <img src="img/hammer1.png" id="hammer" alt="">
+        <div id="hollow1"><img src="img/mouse1.png" alt=""></div>
+        <div id="hollow2"><img src="img/mouse1.png" alt=""></div>
+        <div id="hollow3"><img src="img/mouse1.png" alt=""></div>
+        <div id="hollow4"><img src="img/mouse1.png" alt=""></div>
+        <div id="hollow5"><img src="img/mouse1.png" alt=""></div>
+        <div id="hollow6"><img src="img/mouse1.png" alt=""></div>
+        <div id="hollow7"><img src="img/mouse1.png" alt=""></div>
+        <div id="hollow8"><img src="img/mouse1.png" alt=""></div>
+        <div id="hollow9"><img src="img/mouse1.png" alt=""></div>
+        <div id="startScene">
+            <h2>游戏说明</h2>
+            <p>每打中一个地鼠计一分，<br>限时30s</p>
+            <br>
+            <input type="button" value="开始" id="start">
+        </div>
+        <div id="score">0</div>
+        <div id="time">30s</div> 
+        <div id="overScene">
+            <div>Game Over</div>
+            <p>本局得分：<span id="Score"></span></p>
+            <input type="button" value="返回" id="overGame">
+        </div>       
+    </div>
+    
+    <script>
+        var scene = document.getElementById("scene");
+        var hammer = document.getElementById("hammer");
+        
+        scene.onmousedown = function(){
+            hammer.src = "img/hammer2.png";
+        }
+        scene.onmouseup = function(){
+            hammer.src = "img/hammer1.png";
+        }
+        scene.onmousemove = function(e){
+            // console.log(e.clientX + " "+ e.clientY);
+            var x = e.clientX;
+            var y = e.clientY;
+            hammer.style.top = y + "px";
+            hammer.style.left = x + "px";
+        }
+        var num = 0, 
+            flag = true,
+            mouseScore = [];
+        scene.onclick = function (e){
+            var x = e.clientX;
+            var y = e.clientY;
+            //碰撞检测
+            var x1 = mouseAry[mouseID].offsetLeft + hollowAry[mouseID].offsetLeft;
+            var x2 = x1 + mouseAry[mouseID].offsetWidth;
+            var y1 = mouseAry[mouseID].offsetTop + hollowAry[mouseID].offsetTop;
+            var y2 = hollowAry[mouseID].offsetTop + hollowAry[mouseID].offsetHeight;
+            if(x > x1 && x < x2 && y > y1 && y < y2){                             
+                if(flag != false){
+                    mouseAry[mouseID].src = "img/mouse2.png";
+                    num += mouseScore;
+                    mouseScore = 0;
+                    score.innerHTML = num;  
+                }
+            }
+        }
+        
+        var mouseID = 0; 
+        var hollowAry = [];
+        var mouseAry = [];
+        for(var i = 0; i < 9; i++){
+            hollowAry[i] = document.getElementById("hollow" + (i +1));
+            mouseAry[i] = hollowAry[i].getElementsByTagName("img")[0];
+        }
+
+               
+        function mouseShow(){
+            if(nowTop > EndTop){
+                nowTop -= 4;
+            }
+            if(nowTop < EndTop){
+                nowTop = EndTop;
+            }
+            if(nowTop == EndTop){
+                if(waitTime < waitMaxTime){
+                    waitTime += loopTime;
+                }
+                if(waitTime >= waitMaxTime){
+                    nowTop = initTop;
+                    clearInterval(mouseLoop);
+                    mouseLoop = null;
+                }
+                
+            }
+            mouseAry[mouseID].style.top = nowTop + "px";
+        }
+        //开始游戏
+        var start = document.getElementById("start");
+        var startScene = document.getElementById("startScene");
+        var time = document.getElementById("time");
+        var score = document.getElementById("score");
+        var overGame = document.getElementById("overGame");
+        var overScene = document.getElementById("overScene");
+        var Score = document.getElementById("Score");
+
+        var mouseLoop = null;
+        var loopTime = 30;
+        var initTop = 102;
+        var EndTop = 0;
+        var nowTop = initTop;
+        var waitTime = 0;
+        var waitMaxTime = 1000;
+
+        start.onclick = function (){
+            hammer.style.display = "block";
+            startScene.style.display = "none";
+            mouseLoop = null;
+            // mouseAry[mouseID].display = "none";
+            //每两秒产生一个老鼠
+            setInterval(function(){
+                if(mouseLoop == null){
+                    mouseID = parseInt(Math.random()*9);
+                    mouseAry[mouseID].src = "img/mouse1.png";
+                    // console.log(mouseAry[mouseID]);
+                    mouseScore = 1;
+                    nowTop = initTop;
+                    waitTime = 0;
+                    mouseLoop = setInterval(mouseShow,loopTime);
+                }    
+            },2000);
+            var Time = 30;
+            function timeShow(){
+                if(Time == 0){
+                    Time = 0;
+                    mouseAry[mouseID].style.top = 156 + "px";
+                    clearInterval(mouseLoop);
+                    overScene.style.display = "block"; 
+                    hammer.style.display = "none";
+                    Score.innerHTML = num;                
+                }else{
+                    Time = Time - 1;
+                }
+                time.innerText = Time + "s";
+            }
+            ov= setInterval(timeShow,1000);         
+        }
+        //点击返回
+        overGame.onclick = function(){
+            overScene.style.display = "none";
+            startScene.style.display = "block";
+            clearInterval(ov);
+            num = 0;          
+            score.innerHTML = 0;
+            mouseScore = 0;
+            time.innerText = "30s";           
+        }
+        
+    </script>
+</body>
+</html>

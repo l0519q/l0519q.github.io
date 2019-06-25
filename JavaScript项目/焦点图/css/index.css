@@ -1,0 +1,33 @@
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.box {
+    position: relative;
+}
+.left {
+    width: 140px;
+    float: left;
+}
+.left img {
+    width: 140px;
+}
+.right {
+    width: 440px;
+    margin-left: 10px;
+    float: left;
+}
+.right img {
+    display: none;
+    width: 440px;
+}
+.right  .show {
+    display: inline-block;
+}
+#pointer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 4px;
+}

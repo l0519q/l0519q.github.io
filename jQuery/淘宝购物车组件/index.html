@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            position: relative;
+            width: 77px;
+            height: 25px;
+            margin: 0 auto;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .wrapper a {
+            position: absolute;
+            top: 0;
+            width: 17px;
+            height: 23px;
+            border: 1px solid #e5e5e5;
+            line-height: 23px;
+            text-decoration: none;
+            text-align: center;
+            background: #f0f0f0;
+            color: #444;
+        }
+        .wrapper .prev {
+            left: 0;
+        }
+        .wrapper .next {
+            right: 0;
+        }
+        .wrapper .text {
+            position: absolute;
+            left: 18px;
+            top: 0;
+            width: 39px;
+            height: 15px;
+            z-index: 2;
+            line-height: 15px;
+            border: 1px solid #aaa;
+            color: #343434;
+            text-align: center;
+            padding: 4px 0;
+            background-color: #fff;
+            background-position: -75px -375px;
+        }
+        .wrapper .min {
+            color: #e5e5e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <a href="javascript:;" class="prev">-</a>
+        <input type="text" value="1" class="text">
+        <a href="javascript:;" class="next">+</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        var value = 1;
+        var max = 20;
+        function notIn() {
+            if (value <= 1) {
+                $('.prev').addClass('min');
+                $('.next').removeClass('min');
+            }else if (value >= max) {
+                $('.prev').removeClass('min');
+                $('.next').addClass('min');
+            }else {
+                $('.min').removeClass('min');
+            }
+        }
+        notIn();
+        $('input').on('input', function () {
+            cont(0);
+            notIn();
+        })
+        function cont(num) {
+            value = parseInt($('.text').val()) + num;
+            if (value <= 1 || isNaN(value)) {
+                value = 1;
+            }else if (value >= max) {
+                value = max;
+            }
+            $('.text').val(value);
+        }
+        // $('.wrapper').find('.prev').click(function () {
+        //     cont(-1);
+        //     notIn();
+        // }).end().find('.next').click(function () {
+        //     cont(1);
+        //     notIn();
+        // })
+        $('.prev').add('.next').click(function () {
+            if ($(this).hasClass('prev')) {
+                cont(-1);
+            }else{
+                cont(1);
+            }
+            notIn();
+        })
+    </script>
+</body>
+</html>

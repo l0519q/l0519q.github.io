@@ -1,0 +1,123 @@
+#scene{
+    width: 750px;
+    height: 550px;
+    background: url("../img/bg.png");
+    position: relative;
+    /* cursor: none; */
+    user-select: none;
+}
+#hammer{
+    /* border: 1px solid black; */
+    display: none;
+    margin-top: -40px;
+    margin-left: -40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: none;
+    user-select: none;
+    z-index: 9;
+}
+div[id^="hollow"]{
+    /* border: 1px solid black; */
+    width: 102px;
+    height: 103px;
+    position: absolute;
+    overflow: hidden;
+}
+#hollow1{
+    top: 160px;
+    left: 140px;   
+}
+#hollow2{
+    top: 160px;
+    left: 330px;   
+}
+#hollow3{
+    top: 160px;
+    left: 528px;   
+}
+#hollow4{
+    top: 250px;
+    left: 115px;   
+}
+#hollow5{
+    top: 250px;
+    left: 334px;   
+}
+#hollow6{
+    top: 250px;
+    left: 530px;   
+}
+#hollow7{
+    top: 340px;
+    left: 110px;   
+}
+#hollow8{
+    top: 350px;
+    left: 334px;   
+}
+#hollow9{
+    top: 350px;
+    left: 550px;   
+}
+div[id^="hollow"] img {
+    position: absolute;
+    top: 102px;
+    left: 0px;
+}
+#startScene, #overScene{
+    position: absolute;
+    top: 200px;
+    left: 280px;
+    width: 200px;
+    height: 200px;
+    background: greenyellow;
+    border: 1px solid green;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 10;    
+}
+#startScene input,
+#overScene input{
+    width: 80px;
+    height: 30px;
+    font-size: 25px;
+    line-height: 25px;
+    border-radius: 25px;
+    border: 1px solid #0881bf;
+    background: #0881bf;
+    cursor: pointer;
+}
+#score, #time{
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    top: 195px;
+    left: 280px;
+}
+#time{    
+    left: 525px;
+}
+#overScene{
+    display: none;
+    left: 225px;    
+    width: 300px;
+    
+}
+#overScene div{
+    font-size: 50px;
+    color: red;
+}
+#overScene p{
+    font-size: 20px;
+}
+#overScene input{
+    position: relative;
+    margin: 15px auto;
+    width: 100px;
+    height: 35px;
+    border: 1px solid orangered;
+    background: orange;
+    color: aqua;  
+}

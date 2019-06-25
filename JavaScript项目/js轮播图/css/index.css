@@ -1,0 +1,64 @@
+body, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.container {
+    position: relative;
+    width: 520px;
+    height: 280px;
+    margin: 150px auto;
+    border: 5px solid #000;
+    overflow: hidden;
+}
+.main {
+    position: absolute;
+    left: -520px;
+    width: 3640px;
+    height: 280px;
+    font-size: 0;
+}
+.list {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -35px;
+    font-size: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 7px;
+}
+.list li {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 3px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+}
+.list .active {
+    background: orange;
+}
+.container .btn {
+    position: absolute;
+    top: 50%;
+    display: none;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.container:hover .btn {
+    display: inline-block;
+}
+#prev {
+    left: 0;
+}
+#next {
+    right: 0;
+}

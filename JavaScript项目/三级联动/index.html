@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>全国三级城市联动</title>
+</head>
+<body>
+    <select name="province" id="province"></select>
+    <select name="city" id="city"></select>
+    <select name="district" id="district"></select>
+
+    <script src="js/index.js"></script>
+    <script>
+        var province = document.getElementById('province');
+        var city = document.getElementById('city');
+        var district = document.getElementById('district');
+        
+        for (var i = 0; i < provinceList.length; i++) {
+            province.options.add(new Option(provinceList[i].name, provinceList[i].name));
+        }
+
+        // 初始化
+        changeProvince();
+        changeCity();
+
+        // 监听province的变化
+        province.onchange = changeProvince;
+        function changeProvince() {
+            // 清空option
+            city.options.length = 0;
+            var cityAry = provinceList[province.selectedIndex].cityList;
+            for (var i = 0; i < cityAry.length; i++) {
+                city.options.add(new Option(cityAry[i].name, cityAry[i].name));
+            }
+            // province变动时district跟着变
+            changeCity();
+        }
+
+        // 监听city的变化
+        city.onchange = changeCity;
+        function changeCity() {
+            // 清空option
+            district.options.length = 0;
+            var districtAry = provinceList[province.selectedIndex].cityList[city.selectedIndex].districtList;
+            for (var i= 0; i < districtAry.length; i++) {
+                district.options.add(new Option(districtAry[i], districtAry[i]));
+            }
+        }
+
+    </script>
+</body>
+</html>

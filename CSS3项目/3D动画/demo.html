@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>立方体旋转</title>
+    <style> 
+        .wrapper{
+            perspective: 600px;
+        }
+        .box{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            transform-style: preserve-3d;
+            animation: move 5s linear infinite;
+        }
+        .item{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.5;
+        }
+        .item:nth-child(1){
+            background: red;
+            transform: translateZ(100px);
+        }
+        .item:nth-child(2){
+            background: green;
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .item:nth-child(3){
+            background: orange;
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        .item:nth-child(4){
+            background: purple;
+            transform: rotateY(270deg) translateZ(100px);
+        }
+        .item:nth-child(5){
+            background: skyblue;
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .item:nth-child(6){
+            background: salmon;
+            transform: rotateX(270deg) translateZ(100px);
+        }
+        @keyframes move{
+            0%{
+                transform: rotate3d(1,1,1,0);
+            }
+            100%{
+                transform: rotate3d(1,1,1,360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>  
+    </div>
+    
+</body>
+</html>

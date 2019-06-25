@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个性化播放器</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="main">
+            <img id="Img" src="source/琵琶行.jpg" alt="">
+            <audio id="audio" src="source/琵琶行.mp3"></audio>
+            <div>
+                <p id="MName">琵琶行</p>
+            </div>
+            
+        </div>
+        <div class="tool">
+            <div class="previous">
+                <i class="iconfont icon-previous"></i>
+            </div>
+            <div class="btn">
+                <i class="iconfont icon-bofang"></i>
+            </div>
+            <div class="next">
+                <i class="iconfont icon-next"></i>
+            </div>
+            <div class="progress">
+                <div class="current-time"></div>
+                <div class="pro-box">
+                    <div class="pro-bg"></div>
+                    <div class="pro-active">
+                        <div class="radio-box">
+                            <span class="radio"></span>
+                        </div> 
+                    </div>
+                </div>
+                <div class="all-time"></div>
+            </div>
+            <div class="volume">
+                <i id="laba" class="iconfont icon-laba"></i>
+            </div>
+            <div class="vo-box">
+                <div class="vo-bg"></div>
+                <div class="vo-active">
+                    <div class="box">
+                        <span class="vo-radio"></span>
+                        <div class="vo-num"></div>
+                    </div> 
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

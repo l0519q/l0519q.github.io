@@ -1,0 +1,28 @@
+.pageDiv {
+    text-align: center;
+}
+.pageDiv a, .pageDiv span {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin: 0 5px;
+    line-height: 36px;
+}
+.pageDiv a {
+    border: 1px solid #ddd;
+    text-decoration: none;
+}
+.pageDiv span {
+    color: #666;
+    font-weight: 600;
+}
+.pageDiv .prev,
+.pageDiv .next,
+.pageDiv .disabled {
+    width: auto;
+    padding: 0 20px;
+}
+.pageDiv .disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}

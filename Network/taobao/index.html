@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body, ul, li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .wrapper {
+            position: relative;
+            width: 630px;
+            height: 40px;
+            margin: 150px auto;
+        }
+        .search input {
+            width: 552px;
+            height: 34px;
+            padding-left: 10px;
+            border: 2px solid #ff5000;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            outline: none;
+        }
+        .btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 74px;
+            height: 40px;
+            padding: 0;
+            border: none;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            background-color: #ff4200;
+            cursor: pointer;
+        }
+        ul {
+            position: absolute;
+            left: 0;
+            top: 38px;
+            display: none;
+            width: 554px;
+            border: 1px solid #ccc;
+            background: #fff;
+        }
+        ul li {
+            padding: 5px;
+            font-size: 14px;
+        }
+        ul li:hover {
+            background: #eee;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="search">
+            <input type="text">
+        </div>
+        <button class="btn">搜索</button>
+        <ul></ul>
+    </div>
+
+    <script>
+        var oInput = document.getElementsByTagName('input')[0];
+        var oUl = document.getElementsByTagName('ul')[0];
+        oInput.oninput = function () {
+            var val = oInput.value;
+            var oScript = document.createElement('script');
+            oScript.src = 'https://suggest.taobao.com/sug?code=utf-8&q=' + val + '&callback=cbs';
+            document.body.appendChild(oScript);
+            oScript.remove();
+        }
+        function cbs(data) {
+            console.log(data);
+            var str = '';
+            if (data.result.length > 0) {
+                oUl.style.display = 'block';
+                data.result.forEach(function (ele, index) {
+                    str += '<li>' + ele[0] + '</li>';
+                });
+                oUl.innerHTML = str;
+            }else {
+                oUl.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

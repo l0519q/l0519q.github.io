@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        body, ul, li, a{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+            background: #ccc;
+            font-size: 0;
+        }
+        .wrapper input{
+            display: none;
+        }
+        .title ul li{
+            display: inline-block;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        .title ul li label{
+            display: inline-block;
+            width: 200px;
+            height: 50px;
+        }
+        .main{
+            background: #f7f7f7;
+        }
+        .main ul{
+            display: none;
+            padding: 20px 0;
+        }
+        .main ul li{
+            margin: 10px 50px;
+        }
+        .main ul li a{
+            font-size: 14px;
+            color: #666;    
+        }
+        #hot:checked ~ .main .hot-news,
+        #home:checked ~ .main .home-news,
+        #international:checked ~ .main .international-news{
+            display: block;
+        }
+        #hot:checked ~ .title .hot,
+        #home:checked ~ .title .home,
+        #international:checked ~ .title .international{
+            background: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input type="radio" name="tab" id="hot" checked>
+        <input type="radio" name="tab" id="home">
+        <input type="radio" name="tab" id="international">
+        <nav class="title">
+            <ul>
+                <li class="hot"><label for="hot">热门新闻</label></li>
+                <li class="home"><label for="home">国内新闻</label></li>
+                <li class="international"><label for="international">国际新闻</label></li>
+            </ul>
+        </nav>
+        <div class="main">
+            <ul class="hot-news">
+                <li><a href="javascript:;">习近平同意大利总理孔特举行会谈</a></li>
+                <li><a href="javascript:;">特价机票也可以退了：四大航已完成“阶梯费率”退改签规则</a></li>
+                <li><a href="javascript:;">“川藏第一桥”：无人机架桥索 提前9个月顺利通车</a></li>
+                <li><a href="javascript:;">习近平：我将无我 不负人民 中意使丝绸之路焕发活力</a></li>
+            </ul>
+            <ul class="home-news">
+                <li><a href="javascript:;">习近平抵达罗马开始对意大利共和国进行国事访问</a></li>
+                <li><a href="javascript:;">习近平乘专机抵达意大利 微视频：伙伴 理论新境界</a></li>
+                <li><a href="javascript:;">腾讯2018年总收入3127亿元 同比增长</a></li>
+                <li><a href="javascript:;">沪指低开0.02%报3100点 个股跌多涨少</a></li>
+            </ul>
+            <ul class="international-news">
+                <li><a href="javascript:;">喉舌福克斯？ 美媒批福克斯新闻已成“白宫分支”</a></li>
+                <li><a href="javascript:;">外媒：巴西前总统涉腐败被捕 成该国第二位入狱总统</a></li>
+                <li><a href="javascript:;">印度在斯里兰卡投资挑战中国？外交部：中国没那么小气</a></li>
+                <li><a href="javascript:;">邻国外长来访，引用美国总统名言讽刺美国</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

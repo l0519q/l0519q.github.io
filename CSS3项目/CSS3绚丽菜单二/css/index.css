@@ -1,0 +1,92 @@
+body, ul, li, a, p, h2 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body {
+    background: rgba(0, 0, 0, 0.1);
+}
+@font-face {
+    font-family: "汉仪蝶语体简";
+    src: url("../font/汉仪蝶语体简.ttf");
+}
+@font-face {
+    font-family: "WebSymbols";
+    src: url("../font/WebSymbols-Regular.otf");
+}
+
+.wrapper {
+    margin: 20px auto 0;
+    width: 500px;
+}
+li {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 4px;
+    background: #fff;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+a {
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+    color: #000;
+}
+.icon {
+    display: inline-block;
+    margin-left: 20px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;   
+    font-family: "WebSymbols";
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    transition: font-size 0.3s ease;
+    text-shadow: 0 0 1px #333;
+}
+.content {
+    display: inline-block;    
+    font-family: "汉仪蝶语体简";
+    vertical-align: middle;
+}
+.main {
+    font-weight: normal;
+
+}
+li:hover {
+    background: rgba(255, 169, 0, 0.2);
+}
+li:hover .icon{
+    color: orange;
+    font-size: 40px;
+    text-shadow: 0 0 1px #fff;
+}
+li:hover .main {
+    color: orange;
+    animation: moveFromTop 0.3s ease;
+}
+li:hover .des {
+    animation: moveFromBottom 0.3s ease;
+}
+@keyframes moveFromTop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+@keyframes moveFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}

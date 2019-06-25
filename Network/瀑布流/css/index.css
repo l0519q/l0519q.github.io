@@ -1,0 +1,29 @@
+body, ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.wrapper {
+    text-align: center;
+}
+.list {
+    display: inline-block;
+}
+.list li {
+    float: left;
+}
+.item {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+}
+.item img {
+    display: block;
+    width: 230px;   
+}

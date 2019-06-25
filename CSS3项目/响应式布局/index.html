@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>chanke</title>
+</head>
+<body>
+    <nav class="gn-golbalnav">
+        <div class="gn-content">
+            <ul class="gn-header">
+                <li class="gn-logo"><a href="javascript:;"></a></li>
+                <li><a href="javascript:;"><i class="iconfont">&#xe655;</i></a></li>
+            </ul>
+            <ul class="gn-list">
+                <li><a href="javascript:;">Aimee</a></li>
+                <li><a href="javascript:;">CC</a></li>
+                <li class="gn-logo"><a href="javascript:;"></a></li>
+                <li><a href="javascript:;">Luwei</a></li>
+                <li><a href="javascript:;">小蝉</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="main">
+            <p>Aimee<br>蝉壳教育前端讲师，原腾讯前端工程师，负责腾讯微信移动端城市服务项目，拥有丰富的移动端项目开发经验。熟练运用并深入理解CSS3、HTML5，擅长前端页面复杂动态效果的实现与优化。精通原生JavaScript、Vue.js，React.js拥有丰富的前端研发以及互联网教学经验。</p>
+            <p>CC<br>上海交通大学计算机专业、交大安泰MBA。现上海蝉壳网络CTO 全栈架构师。从事互联网研发及管理12余年，曾主导研发数个百万级用户的大型项目如：国内首个H5应用制作平台、返利网电商广告反劫持等。原上海央讯联合创始人兼CTO，独立设计百万并发的Dsp系统。精通大前端技术、python、C/C++等，是人工智能及大数据领域专家。</p>
+            <p>Luwei<br>蝉壳教育前端讲师，原滴滴出行大数据部门前端工程师，负责滴滴大数据可视化平台搭建。精通原生JavaScript，拥有极强的代码逻辑，擅长优化复杂逻辑的JavaScript项目代码。熟练运用多种前端框架，在Vue.js、React.js上颇有建树，并拥有丰富的线上线下教育经验及独特的授课方式。</p>
+            <p>小蝉<br>蝉壳学院首席教育咨询顾问，在互联网行业职业轨迹规划，互联网招聘求职有着丰富的经验</p>
+        </div>
+    </main>
+
+    <script>
+        var gnMore = document.getElementsByClassName('iconfont')[0],
+            gnList = document.getElementsByClassName('gn-list')[0];
+
+
+        gnMore.onclick = function () {
+
+        if(document.getElementsByClassName('gn-list-active')[0]) {
+            gnList.classList.remove('gn-list-active');
+        }else {
+            gnList.classList.add('gn-list-active');
+        }
+    
+        }
+    </script>    
+</body>
+</html>

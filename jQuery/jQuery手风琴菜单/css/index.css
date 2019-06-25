@@ -1,0 +1,58 @@
+body, ul, li ,p {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+body {
+    background: #333;
+}
+.wrapper {
+    width: 360px;
+    margin: 100px auto;
+    border-radius: 4px;
+    background: #fff;
+}
+.item {
+    border-bottom: 1px solid #ccc;
+}
+.item:nth-child(3) {
+    border-bottom: 0;
+}
+.item ul {
+    display: none;
+}
+.title {
+    position: relative;
+    padding: 15px 40px;
+}
+.title .iconfont {
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+}
+.title .iconfont:nth-child(1) {
+    left: 15px;
+}
+.title .iconfont:nth-child(2) {
+    right: 15px;
+    transition: transform 0.3s ease;
+}
+.item ul {
+    background: #888;
+}
+.item a {
+    display: block;
+    padding: 10px 40px;
+    color: #eee;
+    text-decoration: none;
+}
+.item a:hover {
+    background: #b63b4d;
+}
+.active .title{
+    color: #b63b4d;
+}
+.active .icon-jiantouxia {
+    transform: rotate(180deg);
+}
+
