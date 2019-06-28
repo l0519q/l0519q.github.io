@@ -164,6 +164,11 @@ oBox.onmousedown = function () {
         }
         oVoActive.style.width = newWidth + "px";
         oAudio.volume = (newWidth-8)/92 * 1;
+        if (oAudio.volume === 0) {
+            oLaba.className = "iconfont icon-jingyin";
+        } else {
+            oLaba.className = "iconfont icon-laba";
+        }
         oVoNum.style.display = "block";
         oVoNum.innerHTML = parseInt(oAudio.volume * 100);
         return nowVolume = oAudio.volume, nowWidth =  oVoActive.style.width;
@@ -179,14 +184,14 @@ var nowVolume = oAudio.volume,
     nowWidth = oVoActive.style.width;
 oLaba.onclick = function () {
     if (flag) {
-        oVoActive.style.width = "0px";
+        oVoActive.style.width = "8px";
         oAudio.volume = 0;
-        oLaba.className = "iconfont icon-jingyin"
+        oLaba.className = "iconfont icon-jingyin";
         flag = !flag;
     } else {
         oVoActive.style.width = nowWidth;
         oAudio.volume = nowVolume;
-        oLaba.className = "iconfont icon-laba"
+        oLaba.className = "iconfont icon-laba";
         flag = !flag;
     }
 }
