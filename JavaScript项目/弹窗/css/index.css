@@ -1,0 +1,23 @@
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+#myAd {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 0;
+    border: 1px solid #000;
+}
+#myClose {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+.bg {
+    width: 400px;
+}
