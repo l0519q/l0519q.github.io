@@ -26,7 +26,6 @@
                 </a>
             </div>
             <PhoneBody
-                class="content"
                 :posts="posts"
                 :step="step"
                 :image="image"
@@ -112,6 +111,7 @@ export default {
                 filter: this.selectFilter
             };
             this.posts.unshift(post);
+            this.caption = '';
             this.goToHome();
         }
     }

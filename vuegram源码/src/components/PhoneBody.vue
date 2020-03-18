@@ -3,7 +3,7 @@
         <div
             v-if="step === 1"
             class="feed"
-            v-dragscroll
+            ref="wrapper"
         >
             <div class="vuegram-post">
                 <VuegramPost
@@ -13,16 +13,16 @@
                 ></VuegramPost>
             </div>
         </div>
-        <div v-if="step === 2">
+        <div
+            v-if="step === 2"
+            
+        >
             <div
                 class="selected-image"
                 :class="selectFilter"
                 :style="{ backgroundImage: 'url(' + image + ')' }"
             ></div>
-            <div
-                class="filter-container"
-                v-dragscroll
-            >
+            <div class="filter-container" v-dragscroll>
                 <FilterType
                     v-for="filter in filters"
                     :key="filter.name"
@@ -52,6 +52,7 @@
 <script>
 import VuegramPost from './VuegramPost';
 import FilterType from './FilterType';
+import BScroll from '@better-scroll/core';
 
 export default {
     components: {
@@ -65,6 +66,15 @@ export default {
         image: String,
         selectFilter: String,
         value: String
+    },
+    mounted() {
+        this.$nextTick(() => {
+            this.scroll = new BScroll(this.$refs.wrapper, {
+                scrollY: true,
+                click: true,
+                dblclick: true
+            });
+        });
     },
     methods: {
         inputText(event) {

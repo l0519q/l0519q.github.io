@@ -47,4 +47,10 @@ export default {
 </script>
 
 <style lang="scss" src="../styles/vuegram-post.scss">
+.content figure:not(:last-child) {
+    margin: 0 !important;
+}
+.content figure {
+    margin: 0 !important;
+}
 </style>
