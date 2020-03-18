@@ -18,5 +18,4 @@ export default [
     { name: "lofi" },
     { name: "inkwell" },
     { name: "nashville" }
-  ];
-  
+];

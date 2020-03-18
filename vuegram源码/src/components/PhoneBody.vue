@@ -1,49 +1,63 @@
 <template>
     <div class="phone-body">
-        <div class="feed" v-if="step === 1" v-dragscroll>
+        <div
+            v-if="step === 1"
+            class="feed"
+            v-dragscroll
+        >
             <div class="vuegram-post">
                 <VuegramPost
                     v-for="(post, index) in posts"
                     :key="index"
-                    :post="post">                    
-                </VuegramPost>
+                    :post="post"
+                ></VuegramPost>
             </div>
         </div>
         <div v-if="step === 2">
-            <div 
+            <div
                 class="selected-image"
                 :class="selectFilter"
-                :style="{backgroundImage: 'url(' + image + ')'}">
-            </div>
-            <div class="filter-container" v-dragscroll>
-                <FilterType 
-                    v-for="filter in filters" 
+                :style="{ backgroundImage: 'url(' + image + ')' }"
+            ></div>
+            <div
+                class="filter-container"
+                v-dragscroll
+            >
+                <FilterType
+                    v-for="filter in filters"
                     :key="filter.name"
                     :filter="filter"
-                    :image="image">
-                </FilterType>
+                    :image="image"
+                ></FilterType>
             </div>
         </div>
         <div v-if="step === 3">
-            <div 
+            <div
                 class="selected-image"
                 :class="selectFilter"
-                :style="{backgroundImage: 'url(' + image + ')'}">
+                :style="{ backgroundImage: 'url(' + image + ')' }"
+            >
             </div>
             <div class="caption-container">
-                <textarea 
+                <textarea
                     placeholder="Write a caption..."
                     :value="value"
-                    @input="inputText">
-                </textarea>
-            </div>           
+                    @input="inputText"
+                ></textarea>
+            </div>
         </div>
     </div>
 </template>
+
 <script>
-import VuegramPost from './VuegramPost'
-import FilterType from './FilterType'
+import VuegramPost from './VuegramPost';
+import FilterType from './FilterType';
+
 export default {
+    components: {
+        VuegramPost,
+        FilterType
+    },
     props: {
         posts: Array,
         filters: Array,
@@ -52,17 +66,12 @@ export default {
         selectFilter: String,
         value: String
     },
-    components: {
-        VuegramPost,
-        FilterType
-    },
     methods: {
         inputText(event) {
-            this.$emit("input", event.target.value)
+            this.$emit('input', event.target.value);
         }
     }
-}
+};
 </script>
 <style lang="scss" src="../styles/phone-body.scss">
-
 </style>

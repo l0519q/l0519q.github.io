@@ -8,19 +8,19 @@
                 <span class="username">{{ post.username }}</span>
             </div>
         </div>
-        <div 
+        <div
             class="image-container"
             :class="post.filter"
+            :style="{ backgroundImage: 'url(' + post.postImage + ')' }"
             @dblclick="clicklike"
-            :style="{backgroundImage: 'url(' + post.postImage + ')'}">
-        </div>
+        ></div>
         <div class="content">
             <div class="heart">
-                <i 
+                <i
                     class="far fa-heart"
+                    :class="{ fas: this.post.hasBeenLiked }"
                     @click="clicklike"
-                    :class="{fas: this.post.hasBeenLiked}">
-                </i>
+                ></i>
             </div>
             <p class="likes">
                 {{ post.likes }} likes
@@ -31,6 +31,7 @@
         </div>
     </div>
 </template>
+
 <script>
 export default {
     props: {
@@ -42,8 +43,8 @@ export default {
             this.post.hasBeenLiked = !this.post.hasBeenLiked;
         }
     }
-}
+};
 </script>
-<style lang="scss" src="../styles/vuegram-post.scss">
 
+<style lang="scss" src="../styles/vuegram-post.scss">
 </style>
